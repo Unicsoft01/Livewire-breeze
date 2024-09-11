@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark" data-topbar-color="light" data-menu-color="dark" data-menu-size="hidden">
 
 <head>
      <!-- Title Meta -->
