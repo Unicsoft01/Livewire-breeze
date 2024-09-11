@@ -9,6 +9,7 @@
      <meta name="description" content="A fully responsive premium admin dashboard template" />
      <meta name="author" content="Techzaa" />
      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     @livewireStyles
 
      <!-- App favicon -->
      <link rel="shortcut icon" href="assets/images/favicon.ico">
@@ -1268,6 +1269,8 @@
 
      </div>
      <!-- END Wrapper -->
+
+     @livewireScripts
 
      <!-- Vendor Javascript (Require in all Page) -->
      <script src="assets/js/vendor.js"></script>
