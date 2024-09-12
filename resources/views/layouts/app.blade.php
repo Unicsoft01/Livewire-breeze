@@ -200,9 +200,9 @@
 
                                         <div class="dropdown-divider my-1"></div>
 
-                                        <a class="dropdown-item text-danger" href="auth-signin.html">
-                                             <i class="bx bx-log-out fs-18 align-middle me-1"></i><span class="align-middle">Logout</span>
-                                        </a>
+                                        <!-- Authentication -->
+                                        <livewire:components.log-out />
+
                                    </div>
                               </div>
 
@@ -1254,7 +1254,7 @@
                    <div class="container-fluid">
                        <div class="row">
                            <div class="col-12 text-center">
-                               <script>document.write(new Date().getFullYear())</script> &copy; Larkon. Crafted by <iconify-icon icon="iconamoon:heart-duotone" class="fs-18 align-middle text-danger"></iconify-icon> <a
+                              {{date('Y')}} &copy; Larkon. Crafted by <iconify-icon icon="iconamoon:heart-duotone" class="fs-18 align-middle text-danger"></iconify-icon> <a
                                    href="#" class="fw-bold footer-text" target="_blank">Techzaa</a>
                            </div>
                        </div>
