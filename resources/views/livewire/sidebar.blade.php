@@ -2,21 +2,15 @@
     <!-- Sidebar Logo -->
     <livewire:livewire.sidebar-header />
 
-    
+
 
     <div class="scrollbar" data-simplebar>
         <ul class="navbar-nav" id="navbar-nav">
 
             <li class="menu-title">General</li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard') }}" wire:navigate>
-                    <span class="nav-icon">
-                        <iconify-icon icon="solar:widget-5-bold-duotone"></iconify-icon>
-                    </span>
-                    <span class="nav-text"> Dashboard </span>
-                </a>
-            </li>
+            <livewire:livewire.navlink />
+            <livewire:livewire.navlink page="Tasks" icon="solar:clipboard-list-bold-duotone" route="tasks.index"/>
+            <livewire:livewire.navlink page="Image"/>
 
             {{-- <li class="nav-item">
                 <a class="nav-link menu-arrow" href="#sidebarProducts" data-bs-toggle="collapse" role="button"

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\HtmlMinifier;
+use App\Livewire\Tasks\Index;
 
 Route::middleware([HtmlMinifier::class])->group(function () {
 
@@ -14,6 +15,9 @@ Route::middleware([HtmlMinifier::class])->group(function () {
     Route::view('profile', 'profile')
         ->middleware(['auth'])
         ->name('profile');
+
+
+    Route::get('/tasks/index', Index::class)->name('tasks.index');
 
     require __DIR__ . '/auth.php';
 });
