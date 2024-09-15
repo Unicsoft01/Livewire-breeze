@@ -267,7 +267,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Order Summary</h4>
+                    <h4 class="card-title">Create New Task</h4>
                 </div>
                 <div class="card-body">
                     <form class="row g-2">
@@ -297,30 +297,33 @@
                         </div>
                         {{--  --}}
                         <div class="col-6">
-                            <label for="validationTextarea" class="form-label">Textarea</label>
-                            <select class="form-select is-valid" required="" aria-label="select example">
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select is-valid" required="" aria-label="status">
                                 <option value="">Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                @foreach (\App\Enums\StatusType::cases() as $status)
+                                    <option value="{{ $status->value }}">
+                                        {{ $status->name }}
+                                    </option>
+                                @endforeach
                             </select>
                             <div class="valid-feedback">Example invalid select feedback</div>
                         </div>
                         <div class="col-6">
-                            <label for="validationTextarea" class="form-label">Textarea</label>
-                            <select class="form-select is-valid" required="" aria-label="select example">
+                            <label for="priority" class="form-label">Priority</label>
+                            <select class="form-select is-valid" required="" aria-label="priority">
                                 <option value="">Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                @foreach (\App\Enums\PriorityType::cases() as $priority)
+                                    <option value="{{ $priority->value }}">
+                                        {{ $priority->name }}
+                                    </option>
+                                @endforeach
                             </select>
                             <div class="valid-feedback">Example invalid select feedback</div>
                         </div>
 
                         <div class="col-md-12">
                             <label for="validationSerwver02" class="form-label">Deadline</label>
-                            <input type="date" class="form-control" id="validationSerwver02"
-                                required>
+                            <input type="date" class="form-control" id="validationSerwver02" required>
                         </div>
                         <div class="col-12">
                             <div class="form-check">

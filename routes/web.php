@@ -8,16 +8,15 @@ Route::middleware([HtmlMinifier::class])->group(function () {
 
     Route::view('/', 'welcome')->name('welcome');
 
-    Route::view('dashboard', 'dashboard')
-        ->middleware(['auth', 'verified'])
-        ->name('dashboard');
+    Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::view('profile', 'profile')
-        ->middleware(['auth'])
-        ->name('profile');
+        Route::view('dashboard', 'dashboard')->name('dashboard');
 
+        Route::view('profile', 'profile')->name('profile');
 
-    Route::get('/tasks/index', Index::class)->name('tasks.index');
+        Route::get('/tasks/index', Index::class)->name('tasks.index');
+    });
+
 
     require __DIR__ . '/auth.php';
 });
