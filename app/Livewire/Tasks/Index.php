@@ -29,13 +29,11 @@ class Index extends Component
         // dd($this->title, $this->slug, $this->description, $this->status, $this->priority, $this->deadline);
         // validation logics
         auth()->user()->tasks()->create($this->only(['title', 'slug', 'description', 'status', 'priority','deadline']));
-        // Tasks::create(
-        //     $this->only(['title', 'content'])
-        // );
+        // display a session flash message
+        session()->flash('status', 'Saved successfully.');
+        // no need to redirect back like in a normal conroller
 
-        // session()->flash('status', 'Post successfully updated.');
-
-        // return $this->redirect('/posts');
+        $this->reset();
     }
 
     public function render()

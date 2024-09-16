@@ -27,8 +27,8 @@ return new class extends Migration
 
             $table->timestamps();
 
-            // Unique constraint
-            $table->unique(['user_id']);
+            // Unique constraint set a col to be unique and not allow duplicates
+            // $table->unique(['user_id']);
         });
 
 
