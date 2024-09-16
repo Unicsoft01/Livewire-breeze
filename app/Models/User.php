@@ -51,6 +51,6 @@ class User extends Authenticatable
 
     public function tasks(): HasMany
     {
-        return $this->hasMany(Tasks::class);
+        return $this->hasMany(Tasks::class, 'user_id'); //always override the default foreign key as the second argument.
     }
 }

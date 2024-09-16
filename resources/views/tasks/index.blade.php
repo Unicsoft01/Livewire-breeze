@@ -270,27 +270,27 @@
                     <h4 class="card-title">Create New Task</h4>
                 </div>
                 <div class="card-body">
-                    <form class="row g-2">
+                    <form class="row g-2" wire:submit="store">
                         <div class="col-md-12">
-                            <label for="validationServer01" class="form-label">Title</label>
-                            <input type="text" class="form-control is-valid" id="validationServer01"
-                                value="Mark" required>
-                            <div class="valid-feedback">
-                                Looks good!
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control is-valid" id="title" wire:model="title"
+                                required autofocus>
+                            <div class="invalid-feedback">
+                                Something is wrong!
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <label for="validationServer02" class="form-label">Slug</label>
-                            <input type="text" class="form-control is-invalid" id="validationServer02"
-                                value="Otto" required>
+                            <label for="slug" class="form-label">Slug</label>
+                            <input type="text" class="form-control is-invalid" id="slug" wire:model="slug"
+                                required>
                             <div class="invalid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <label for="validationTextarea" class="form-label">Textarea</label>
-                            <textarea class="form-control is-valid" id="validationTextarea" placeholder="Required example textarea"
-                                required=""></textarea>
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control is-valid" id="description" placeholder="Describe task description [Optional]"
+                                wire:model="description"></textarea>
                             <div class="invalid-feedback">
                                 Please enter a message in the textarea.
                             </div>
@@ -298,8 +298,9 @@
                         {{--  --}}
                         <div class="col-6">
                             <label for="status" class="form-label">Status</label>
-                            <select class="form-select is-valid" required="" aria-label="status">
-                                <option value="">Open this select menu</option>
+                            <select class="form-select is-valid" required="" aria-label="status"
+                                wire:model="status">
+                                <option value="">Required</option>
                                 @foreach (\App\Enums\StatusType::cases() as $status)
                                     <option value="{{ $status->value }}">
                                         {{ $status->name }}
@@ -310,7 +311,8 @@
                         </div>
                         <div class="col-6">
                             <label for="priority" class="form-label">Priority</label>
-                            <select class="form-select is-valid" required="" aria-label="priority">
+                            <select class="form-select is-valid" required="" aria-label="priority"
+                                wire:model="priority">
                                 <option value="">Open this select menu</option>
                                 @foreach (\App\Enums\PriorityType::cases() as $priority)
                                     <option value="{{ $priority->value }}">
@@ -321,11 +323,11 @@
                             <div class="valid-feedback">Example invalid select feedback</div>
                         </div>
 
-                        <div class="col-md-12">
-                            <label for="validationSerwver02" class="form-label">Deadline</label>
-                            <input type="date" class="form-control" id="validationSerwver02" required>
+                        <div class="col-md-12 mb-1">
+                            <label for="deadline" class="form-label">Deadline</label>
+                            <input type="date" class="form-control" id="deadline" required wire:model="deadline">
                         </div>
-                        <div class="col-12">
+                        {{-- <div class="col-12">
                             <div class="form-check">
                                 <input class="form-check-input is-invalid" type="checkbox" value=""
                                     id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
@@ -336,9 +338,9 @@
                                     You must agree before submitting.
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-12">
-                            <button class="btn btn-primary btn-md" type="submit">Submit form</button>
+                            <button class="btn btn-primary btn-md" type="submit">Create Task</button>
                         </div>
                     </form>
                 </div>

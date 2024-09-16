@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('status');
             $table->string('priority');
+            $table->string('deadline');
 
             $table->timestamps();
 
