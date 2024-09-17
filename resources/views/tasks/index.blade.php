@@ -271,34 +271,23 @@
                 </div>
                 <div class="card-body">
                     <form class="row g-2" wire:submit="store" novalidate>
-                        <div class="col-md-12">
-                            <label for="title" class="form-label">Title</label>
-                            <input type="text" class="form-control is-invalid" id="title"
-                                wire:model.blur="title" autofocus>
-                            <div>
-                                @error('title')
-                                    <div id="title" class="text-danger mt-1">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                        <x-forms.text-input type="text" required name="title" wire:model.blur="title" />
+                        @error('title')
+                            <div id="title" class="text-danger mt-1">
+                                {{ $message }}
                             </div>
+                        @enderror
 
-                        </div>
-                        <div class="col-md-12">
-                            <label for="slug" class="form-label">Slug</label>
-                            <input type="text" class="form-control iss-invalid" id="slug"
-                                wire:model.blur="slug" required>
-                            <div>
-                                @error('slug')
-                                    <div id="slug" class="text-danger mt-1">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                        <x-forms.text-input type="text" required name="slug" wire:model.blur="slug" />
+                        @error('slug')
+                            <div id="slug" class="text-danger mt-1">
+                                {{ $message }}
                             </div>
-                        </div>
+                        @enderror
+
                         <div class="col-md-12">
                             <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control is-valid" id="description" placeholder="Describe task description [Optional]"
+                            <textarea class="form-control  @error('description') is-invalid @enderror" id="description" placeholder="Describe task description [Optional]"
                                 wire:model.blur="description"></textarea>
                             <div>
                                 @error('description')
@@ -311,7 +300,7 @@
                         {{--  --}}
                         <div class="col-6">
                             <label for="status" class="form-label">Status</label>
-                            <select class="form-select is-valid" required="" aria-label="status"
+                            <select class="form-select  @error('deadline') is-invalid @enderror" required="" aria-label="status"
                                 wire:model.live="status">
                                 <option value="">Task status</option>
                                 @foreach (\App\Enums\StatusType::cases() as $status)
@@ -330,7 +319,7 @@
                         </div>
                         <div class="col-6">
                             <label for="priority" class="form-label">Priority</label>
-                            <select class="form-select is-invalid" required="" aria-label="priority"
+                            <select class="form-select  @error('deadline') is-invalid @enderror" required="" aria-label="priority"
                                 wire:model.live="priority">
                                 <option value="">Open this select menu</option>
                                 @foreach (\App\Enums\PriorityType::cases() as $priority)
@@ -350,7 +339,7 @@
 
                         <div class="col-md-12 mb-1">
                             <label for="deadline" class="form-label">Deadline</label>
-                            <input type="date" class="form-control" id="deadline" required
+                            <input type="date" class="form-control @error('deadline') is-invalid @enderror" id="deadline" required
                                 wire:model.live="deadline">
 
                             <div>
