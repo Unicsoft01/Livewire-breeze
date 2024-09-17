@@ -270,49 +270,68 @@
                     <h4 class="card-title">Create New Task</h4>
                 </div>
                 <div class="card-body">
-                    <form class="row g-2" wire:submit="store">
+                    <form class="row g-2" wire:submit="store" novalidate>
                         <div class="col-md-12">
                             <label for="title" class="form-label">Title</label>
-                            <input type="text" class="form-control is-valid" id="title" wire:model="title"
-                                required autofocus>
-                            <div class="invalid-feedback">
-                                Something is wrong!
+                            <input type="text" class="form-control is-invalid" id="title"
+                                wire:model.blur="title" autofocus>
+                            <div>
+                                @error('title')
+                                    <div id="title" class="text-danger mt-1">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
+
                         </div>
                         <div class="col-md-12">
                             <label for="slug" class="form-label">Slug</label>
-                            <input type="text" class="form-control is-invalid" id="slug" wire:model="slug"
-                                required>
-                            <div class="invalid-feedback">
-                                Looks good!
+                            <input type="text" class="form-control iss-invalid" id="slug"
+                                wire:model.blur="slug" required>
+                            <div>
+                                @error('slug')
+                                    <div id="slug" class="text-danger mt-1">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-12">
                             <label for="description" class="form-label">Description</label>
                             <textarea class="form-control is-valid" id="description" placeholder="Describe task description [Optional]"
-                                wire:model="description"></textarea>
-                            <div class="invalid-feedback">
-                                Please enter a message in the textarea.
+                                wire:model.blur="description"></textarea>
+                            <div>
+                                @error('description')
+                                    <div id="description" class="text-danger mt-1">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         {{--  --}}
                         <div class="col-6">
                             <label for="status" class="form-label">Status</label>
                             <select class="form-select is-valid" required="" aria-label="status"
-                                wire:model="status">
-                                <option value="">Required</option>
+                                wire:model.live="status">
+                                <option value="">Task status</option>
                                 @foreach (\App\Enums\StatusType::cases() as $status)
                                     <option value="{{ $status->value }}">
                                         {{ $status->name }}
                                     </option>
                                 @endforeach
                             </select>
-                            <div class="valid-feedback">Example invalid select feedback</div>
+                            <div>
+                                @error('status')
+                                    <div id="status" class="text-danger mt-1">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
                         </div>
                         <div class="col-6">
                             <label for="priority" class="form-label">Priority</label>
-                            <select class="form-select is-valid" required="" aria-label="priority"
-                                wire:model="priority">
+                            <select class="form-select is-invalid" required="" aria-label="priority"
+                                wire:model.live="priority">
                                 <option value="">Open this select menu</option>
                                 @foreach (\App\Enums\PriorityType::cases() as $priority)
                                     <option value="{{ $priority->value }}">
@@ -320,27 +339,34 @@
                                     </option>
                                 @endforeach
                             </select>
-                            <div class="valid-feedback">Example invalid select feedback</div>
+                            <div>
+                                @error('priority')
+                                    <div id="priority" class="text-danger mt-1">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="col-md-12 mb-1">
                             <label for="deadline" class="form-label">Deadline</label>
-                            <input type="date" class="form-control" id="deadline" required wire:model="deadline">
-                        </div>
-                        {{-- <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input is-invalid" type="checkbox" value=""
-                                    id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
-                                <label class="form-check-label" for="invalidCheck3">
-                                    Agree to terms and conditions
-                                </label>
-                                <div id="invalidCheck3Feedback" class="invalid-feedback">
-                                    You must agree before submitting.
-                                </div>
+                            <input type="date" class="form-control" id="deadline" required
+                                wire:model.live="deadline">
+
+                            <div>
+                                @error('deadline')
+                                    <div id="deadline" class="text-danger mt-1">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
-                        </div> --}}
+                        </div>
                         <div class="col-12">
-                            <button class="btn btn-primary btn-md" type="submit">Create Task</button>
+                            <button class="btn btn-primary btn-md me-2" type="submit">
+                                <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"
+                                    wire:loading></span>
+                                Create Task
+                            </button>
                         </div>
                     </form>
                 </div>
