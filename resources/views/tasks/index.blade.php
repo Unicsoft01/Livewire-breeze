@@ -271,15 +271,15 @@
                 </div>
                 <div class="card-body">
                     <form class="row g-2" wire:submit="store" novalidate>
-                        <x-forms.text-input type="text" required name="title" wire:model.blur="title" />
-                        @error('title')
+                        <x-forms.text-input type="text" required name="form.title" wire:model.blur="form.title" />
+                        @error('form.title')
                             <div id="title" class="text-danger mt-1">
                                 {{ $message }}
                             </div>
                         @enderror
 
-                        <x-forms.text-input type="text" required name="slug" wire:model.blur="slug" />
-                        @error('slug')
+                        <x-forms.text-input type="text" required name="form.slug" wire:model.blur="form.slug" />
+                        @error('form.slug')
                             <div id="slug" class="text-danger mt-1">
                                 {{ $message }}
                             </div>
@@ -287,10 +287,10 @@
 
                         <div class="col-md-12">
                             <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control  @error('description') is-invalid @enderror" id="description" placeholder="Describe task description [Optional]"
-                                wire:model.blur="description"></textarea>
+                            <textarea class="form-control  @error('form.description') is-invalid @enderror" id="description" placeholder="Describe task description [Optional]"
+                                wire:model.blur="form.description"></textarea>
                             <div>
-                                @error('description')
+                                @error('form.description')
                                     <div id="description" class="text-danger mt-1">
                                         {{ $message }}
                                     </div>
@@ -300,8 +300,8 @@
                         {{--  --}}
                         <div class="col-6">
                             <label for="status" class="form-label">Status</label>
-                            <select class="form-select  @error('deadline') is-invalid @enderror" required="" aria-label="status"
-                                wire:model.live="status">
+                            <select class="form-select @error('form.status') is-invalid @enderror" required="" aria-label="status"
+                                wire:model.live="form.status">
                                 <option value="">Task status</option>
                                 @foreach (\App\Enums\StatusType::cases() as $status)
                                     <option value="{{ $status->value }}">
@@ -310,7 +310,7 @@
                                 @endforeach
                             </select>
                             <div>
-                                @error('status')
+                                @error('form.status')
                                     <div id="status" class="text-danger mt-1">
                                         {{ $message }}
                                     </div>
@@ -319,8 +319,8 @@
                         </div>
                         <div class="col-6">
                             <label for="priority" class="form-label">Priority</label>
-                            <select class="form-select  @error('deadline') is-invalid @enderror" required="" aria-label="priority"
-                                wire:model.live="priority">
+                            <select class="form-select  @error('form.priority') is-invalid @enderror" required="" aria-label="priority"
+                                wire:model.live="form.priority">
                                 <option value="">Open this select menu</option>
                                 @foreach (\App\Enums\PriorityType::cases() as $priority)
                                     <option value="{{ $priority->value }}">
@@ -329,7 +329,7 @@
                                 @endforeach
                             </select>
                             <div>
-                                @error('priority')
+                                @error('form.priority')
                                     <div id="priority" class="text-danger mt-1">
                                         {{ $message }}
                                     </div>
@@ -339,11 +339,11 @@
 
                         <div class="col-md-12 mb-1">
                             <label for="deadline" class="form-label">Deadline</label>
-                            <input type="date" class="form-control @error('deadline') is-invalid @enderror" id="deadline" required
-                                wire:model.live="deadline">
+                            <input type="date" class="form-control @error('form.deadline') is-invalid @enderror" id="deadline" required
+                                wire:model.live="form.deadline">
 
                             <div>
-                                @error('deadline')
+                                @error('form.deadline')
                                     <div id="deadline" class="text-danger mt-1">
                                         {{ $message }}
                                     </div>
