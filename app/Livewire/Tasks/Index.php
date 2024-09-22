@@ -11,8 +11,16 @@ class Index extends Component
 
     public function store()
     {
-        
-        $this->form->save(); //return $this->redirect('/posts');
+        $this->form->save();
+
+            $this->dispatch(
+                'swal',
+                [
+                    'title' => 'Saved Successfully!',
+                    'message' => 'You just created a new post!',
+                    'icon' => 'success'
+                ]
+            );
     }
 
     public function render()
