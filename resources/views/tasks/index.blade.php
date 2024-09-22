@@ -13,6 +13,8 @@
         </div>
     </div>
 
+    @include('components.flash-messages');
+
     <div class="row">
         <div class="col-lg-8">
             <div class="row">
@@ -287,8 +289,8 @@
 
                         <div class="col-md-12">
                             <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control  @error('form.description') is-invalid @enderror" id="description" placeholder="Describe task description [Optional]"
-                                wire:model.blur="form.description"></textarea>
+                            <textarea class="form-control  @error('form.description') is-invalid @enderror" id="description"
+                                placeholder="Describe task description [Optional]" wire:model.blur="form.description"></textarea>
                             <div>
                                 @error('form.description')
                                     <div id="description" class="text-danger mt-1">
@@ -300,8 +302,8 @@
                         {{--  --}}
                         <div class="col-6">
                             <label for="status" class="form-label">Status</label>
-                            <select class="form-select @error('form.status') is-invalid @enderror" required="" aria-label="status"
-                                wire:model.live="form.status">
+                            <select class="form-select @error('form.status') is-invalid @enderror" required=""
+                                aria-label="status" wire:model.live="form.status">
                                 <option value="">Task status</option>
                                 @foreach (\App\Enums\StatusType::cases() as $status)
                                     <option value="{{ $status->value }}">
@@ -319,8 +321,8 @@
                         </div>
                         <div class="col-6">
                             <label for="priority" class="form-label">Priority</label>
-                            <select class="form-select  @error('form.priority') is-invalid @enderror" required="" aria-label="priority"
-                                wire:model.live="form.priority">
+                            <select class="form-select  @error('form.priority') is-invalid @enderror" required=""
+                                aria-label="priority" wire:model.live="form.priority">
                                 <option value="">Open this select menu</option>
                                 @foreach (\App\Enums\PriorityType::cases() as $priority)
                                     <option value="{{ $priority->value }}">
@@ -339,8 +341,8 @@
 
                         <div class="col-md-12 mb-1">
                             <label for="deadline" class="form-label">Deadline</label>
-                            <input type="date" class="form-control @error('form.deadline') is-invalid @enderror" id="deadline" required
-                                wire:model.live="form.deadline">
+                            <input type="date" class="form-control @error('form.deadline') is-invalid @enderror"
+                                id="deadline" required wire:model.live="form.deadline">
 
                             <div>
                                 @error('form.deadline')
@@ -389,3 +391,4 @@
 
 
 </div>
+
