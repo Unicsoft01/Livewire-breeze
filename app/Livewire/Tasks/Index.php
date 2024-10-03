@@ -25,6 +25,8 @@ class Index extends Component
 
     public function render()
     {
-        return view('tasks.index');
+        return view('tasks.index', [
+            'tasks' => auth()->user()->tasks,
+        ]);
     }
 }
