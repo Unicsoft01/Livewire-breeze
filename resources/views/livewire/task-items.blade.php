@@ -60,6 +60,8 @@
                 </div>
             </div>
         @endforeach
+
+        {{ $tasks->links() }}
     @else
         <div class="card-body shd">
             <h3 class="text-center">
