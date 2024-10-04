@@ -77,7 +77,7 @@
                 </div>
             </div>
 
-            <livewire:livewire.task-items :$tasks />
+            <livewire:livewire.task-items />
         </div>
         <div class="col-lg-4">
             <div class="card text-center bg-primary overflow-hidden z-1">

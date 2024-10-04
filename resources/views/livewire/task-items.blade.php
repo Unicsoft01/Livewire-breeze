@@ -1,4 +1,10 @@
 <div>
+    <div x-init="setInterval(() => {
+        $wire.$refresh()
+    }, 5000)">
+        {{-- This will get refreshed every 5 seconds --}}
+    </div>
+    
     @if (count($tasks) > 0)
         @foreach ($tasks as $task)
             <div class="card cart-detail shd">
