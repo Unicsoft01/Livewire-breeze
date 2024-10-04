@@ -6,7 +6,9 @@ use App\Livewire\Tasks\Index;
 
 Route::middleware([HtmlMinifier::class])->group(function () {
 
-    Route::view('/', 'welcome')->name('welcome');
+    Route::get('/', function () {
+        return redirect()->route('dashboard');
+    })->name('welcome');
 
     Route::middleware(['auth', 'verified'])->group(function () {
 

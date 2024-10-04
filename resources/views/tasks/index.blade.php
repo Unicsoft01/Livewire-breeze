@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card shd">
                 <div class="card-body">
                     <h3>
                         Tasks created by: {{ Auth::user()->name }}
@@ -19,7 +19,7 @@
         <div class="col-lg-8">
             <div class="row">
                 <div class="col-md-6 col-xl-4">
-                    <div class="card">
+                    <div class="card shd">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
@@ -38,7 +38,7 @@
                     </div> <!-- end card -->
                 </div> <!-- end col -->
                 <div class="col-md-6 col-xl-4">
-                    <div class="card">
+                    <div class="card shd">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
@@ -57,7 +57,7 @@
                     </div> <!-- end card -->
                 </div> <!-- end col -->
                 <div class="col-md-6 col-xl-4">
-                    <div class="card">
+                    <div class="card shd">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
@@ -78,7 +78,7 @@
             </div>
             @if (count($tasks) > 0)
                 @foreach ($tasks as $task)
-                    <div class="card cart-detail">
+                    <div class="card cart-detail shd" lazy>
                         <div class="card-body">
                             <div class="row gy-3">
                                 <div class="col-sm">
@@ -135,7 +135,7 @@
                     </div>
                 @endforeach
             @else
-                <div class="card-body">
+                <div class="card-body shd">
                     <h3 class="text-center">
                         No tasks found. Please create some to display!
                     </h3>
@@ -263,7 +263,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card shd">
                 <div class="card-header">
                     <h4 class="card-title">Create New Task</h4>
                 </div>

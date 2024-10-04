@@ -4,7 +4,9 @@ namespace App\Livewire\Tasks;
 
 use App\Livewire\Forms\TaskForm;
 use Livewire\Component;
-
+use Livewire\Attributes\Lazy;
+ 
+#[Lazy]
 class Index extends Component
 {
     public TaskForm $form;

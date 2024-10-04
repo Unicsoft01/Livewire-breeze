@@ -25,6 +25,13 @@
 
     <!-- Theme Config js (Require in all Page) -->
     <script src="{{ url('/') }}/assets/js/config.js"></script>
+    <style>
+        .shd {
+            /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+            /* box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 90px; */
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 90px;
+        }
+    </style>
 </head>
 
 <body>
