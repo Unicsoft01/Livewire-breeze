@@ -200,7 +200,7 @@
                 </div>
             </div>
 
-            <livewire:livewire.task-form />
+            <livewire:livewire.tasks-form />
            
         </div>
     </div>
