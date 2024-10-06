@@ -42,5 +42,14 @@ class TaskItems extends Component
         $task->update([
             'status' => $status,
         ]);
+
+        $this->dispatch(
+            'swal',
+            [
+                'title' => 'Saved Successfully!',
+                'message' => 'Status changed Successfully!',
+                'icon' => 'success'
+            ]
+        );
     }
 }
