@@ -4,11 +4,13 @@ namespace App\Livewire\Livewire;
 
 use Livewire\Attributes\On;
 use Livewire\Component;
-use Livewire\Attributes\Lazy;
+// use Livewire\Attributes\Lazy;
 use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
+use App\Models\Tasks;
+use DB;
 
-#[Lazy('on-load')]
+// #[Lazy('on-load')]
 class TaskItems extends Component
 {
     use WithPagination, WithoutUrlPagination;
@@ -23,6 +25,7 @@ class TaskItems extends Component
     {
         return view('livewire.task-items', [
             'tasks' => auth()->user()->tasks()->paginate(3),
+            'taskByStatus' => auth()->user()->tasks()->select('status', DB::raw('COUNT(*) as count'))->groupBy('status')->orderBy('status', 'desc')->get(),
         ]);
     }
 
@@ -30,5 +33,14 @@ class TaskItems extends Component
     public function placeholder(array $params = [])
     {
         return view('livewire.placeholders.tasks-skeleton', $params);
+    }
+
+    public function changeStatus($id, $status)
+    {
+        $task = Tasks::find($id);
+
+        $task->update([
+            'status' => $status,
+        ]);
     }
 }

@@ -6,78 +6,19 @@
             <div class="card shd">
                 <div class="card-body">
                     <h3>
-                        Tasks created by: {{ Auth::user()->name }}
+                    Tasks created by: {{ Auth::user()->name }}
                     </h3>
                 </div>
             </div>
         </div>
     </div>
 
-    @include('components.flash-messages');
+    @include('components.flash-messages')
 
     <div class="row">
         <div class="col-lg-8">
-            <div class="row">
-                <div class="col-md-6 col-xl-4">
-                    <div class="card shd">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="avatar-md bg-soft-success rounded mx-auto">
-                                        <b class="avatar-title fs-24 text-success">
-                                            0
-                                        </b>
-                                    </div>
-                                </div> <!-- end col -->
-                                <div class="col-12 text-end0">
-                                    <p class="text-muted mb-0 text-truncate text-center">Started</p>
-                                    <h3 class="text-dark mt-1 mb-0 text-center">dd:mm:yy hh:m</h3>
-                                </div> <!-- end col -->
-                            </div> <!-- end row-->
-                        </div> <!-- end card body -->
-                    </div> <!-- end card -->
-                </div> <!-- end col -->
-                <div class="col-md-6 col-xl-4">
-                    <div class="card shd">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="avatar-md bg-soft-primary rounded mx-auto">
-                                        <b class="avatar-title fs-24 text-primary">
-                                            0
-                                        </b>
-                                    </div>
-                                </div> <!-- end col -->
-                                <div class="col-12 text-end0">
-                                    <p class="text-muted mb-0 text-truncate text-center">Campaign Sent</p>
-                                    <h3 class="text-dark mt-1 mb-0 text-center">13, 647</h3>
-                                </div> <!-- end col -->
-                            </div> <!-- end row-->
-                        </div> <!-- end card body -->
-                    </div> <!-- end card -->
-                </div> <!-- end col -->
-                <div class="col-md-6 col-xl-4">
-                    <div class="card shd">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="avatar-md bg-soft-info rounded mx-auto">
-                                        <b class="avatar-title fs-24 text-info">
-                                            0
-                                        </b>
-                                    </div>
-                                </div> <!-- end col -->
-                                <div class="col-12 text-end0">
-                                    <p class="text-muted mb-0 text-truncate text-center">Campaign Sent</p>
-                                    <h3 class="text-dark mt-1 mb-0 text-center">13, 647</h3>
-                                </div> <!-- end col -->
-                            </div> <!-- end row-->
-                        </div> <!-- end card body -->
-                    </div> <!-- end card -->
-                </div>
-            </div>
 
-            <livewire:livewire.task-items />
+            <livewire:livewire.task-items lazy="on-load" />
         </div>
         <div class="col-lg-4">
             <div class="card text-center bg-primary overflow-hidden z-1">
@@ -201,9 +142,9 @@
             </div>
 
             <livewire:livewire.tasks-form />
-           
+
         </div>
     </div>
 
-    @include('components.alerts');
+    @include('components.alerts')
 </div>

@@ -5,6 +5,9 @@
         {{-- This will get refreshed every 5 seconds --}}
     </div>
 
+    <livewire:tasks.task-count :$taskByStatus />
+
+
     @if (count($tasks) > 0)
         @foreach ($tasks as $task)
             <div class="card cart-detail shd">
@@ -34,7 +37,22 @@
                         <div class="row g-3">
                             <div class="col-sm">
                                 <div class="d-flex gap-2">
-                                    <a href="#!" class="d-flex align-items-center gap-1 btn btn-success">
+                                    @foreach (\App\Enums\StatusType::cases() as $case)
+                                        <button wire:click="changeStatus({{ $task->task_id }}, '{{ $case->value }}')"
+                                            type="button" @class([
+                                                'd-flex align-items-center gap-1 btn',
+                                                'btn-' . $case->color() => true,
+                                            ]) title="{{ $case->name }} "
+                                            {{ $case->value == $task->status->value ? 'disabled' : '' }}>
+                                            <iconify-icon icon="solar:trash-bin-minimalistic-bold-duotone"
+                                                class="fs-18">
+                                            </iconify-icon>
+                                            {{ ucwords($case->value) }}
+                                        </button>
+                                    @endforeach
+
+
+                                    {{-- <a href="#!" class="d-flex align-items-center gap-1 btn btn-success">
                                         <iconify-icon icon="solar:trash-bin-minimalistic-bold-duotone" class="fs-18">
                                         </iconify-icon>
                                         Remove
@@ -48,7 +66,7 @@
                                         <iconify-icon icon="solar:trash-bin-minimalistic-bold-duotone" class="fs-18">
                                         </iconify-icon>
                                         Remove
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </div>
                             {{-- <div class="col-sm-auto">
